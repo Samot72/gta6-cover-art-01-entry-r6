@@ -1,0 +1,5 @@
+# Build-time dependencies for tools/ — installed locally, never shipped.
+tools/node_modules/
+
+# Local handoff output from `MAKEFUN_OUTPUT_DIR=out node main.ts`.
+out/

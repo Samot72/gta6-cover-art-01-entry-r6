@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Director's Cut — One-Photo Autopilot Cover Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">DC</span>
+    <div>
+      <h1>DIRECTOR'S CUT</h1>
+      <p>One-photo autopilot cover studio — drop a photo, the studio directs the cover and shows its work.</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="directBtn" class="primary">🎬 DIRECT IT — one click</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage-card">
+    <div class="view-tabs" role="tablist">
+      <button data-view="cover" class="tab active">Cover</button>
+      <button data-view="notes" class="tab">Director's Notes</button>
+      <button data-view="beforeafter" class="tab">Before / After</button>
+      <button data-view="remix" class="tab">Remix Wall</button>
+    </div>
+    <canvas id="stage" width="1120" height="700"></canvas>
+    <div class="export-row">
+      <span class="export-label">Export PNG:</span>
+      <button data-export="1080x1080">1080 × 1080</button>
+      <button data-export="1080x1350">1080 × 1350</button>
+      <button data-export="1920x1080">1920 × 1080</button>
+      <span id="exportNote" class="export-note"></span>
+    </div>
+  </section>
+
+  <aside class="controls">
+    <section class="panel">
+      <h2>1 · Photographs</h2>
+      <label class="file-btn">
+        Load your own photos
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      </label>
+      <div class="sample-row" id="sampleRow">
+        <span class="sample-label">or start with a sample:</span>
+        <button data-sample="hero">Sunset Hero</button>
+        <button data-sample="driver">Neon Driver</button>
+        <button data-sample="hotel">Hotel Neon</button>
+        <button data-sample="rider">Pier Rider</button>
+      </div>
+      <ul id="photoList" class="photo-list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>2 · Words</h2>
+      <label>Cover title <input id="captionInput" type="text" value="LEONIDA NIGHTS" maxlength="42"></label>
+      <label>Tagline <input id="taglineInput" type="text" value="One last summer. Every debt comes due." maxlength="72"></label>
+    </section>
+
+    <section class="panel">
+      <h2>3 · Remix dice</h2>
+      <div class="dice-row">
+        <button id="diceCrop">🎲 Re-roll crop</button>
+        <button id="diceGrade">🎲 Re-roll grade</button>
+        <button id="diceTitle">🎲 Re-roll title</button>
+      </div>
+      <p class="hint">Each die re-rolls one decision only — the rest of the cover stands.</p>
+    </section>
+
+    <section class="panel">
+      <h2>4 · Override the director</h2>
+      <label>Layout <select id="layoutSelect"></select></label>
+      <label>Grade <select id="gradeSelect"></select></label>
+      <label>Title treatment <select id="titleSelect"></select></label>
+      <label>Panel <select id="panelSelect"></select></label>
+      <label>Role <select id="roleSelect">
+        <option value="lead">THE LEAD</option>
+        <option value="supporting">SUPPORTING</option>
+        <option value="location">LOCATION</option>
+      </select></label>
+      <label>Cast name <input id="castInput" type="text" maxlength="24"></label>
+      <label>Crop focus X <input id="fxRange" type="range" min="0" max="1" step="0.01"></label>
+      <label>Crop focus Y <input id="fyRange" type="range" min="0" max="1" step="0.01"></label>
+      <label>Crop zoom <input id="zoomRange" type="range" min="1" max="2.5" step="0.01"></label>
+    </section>
+
+    <section class="panel notes-panel">
+      <h2>Director's Notes</h2>
+      <ul id="notesList" class="notes-list"></ul>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  Director's Cut runs entirely on your machine: photos are read locally, never uploaded. An original studio —
+  no game artwork, logos or fonts. Export at 1080×1080, 1080×1350 or 1920×1080 and post it.
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

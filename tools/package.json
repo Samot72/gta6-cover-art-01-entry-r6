@@ -1,0 +1,1 @@
+{"dependencies":{"@napi-rs/canvas":"^0.1.65"},"description":"Build-time tools for the Director's Cut entry: sample photo processing and screenshot rendering. Not shipped in app/.","name":"directors-cut-tools","private":true,"type":"module"}
